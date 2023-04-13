@@ -9,3 +9,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 call plug#end()
+
+set rnu
+set nu
+set showcmd
+
+map <leader>f :FZF<CR>
+
