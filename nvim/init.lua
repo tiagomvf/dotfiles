@@ -192,6 +192,10 @@ require('lazy').setup({
 
 -- Set highlight on search
 vim.o.hlsearch = false
+vim.go.tabstop = 4
+vim.go.shiftwidth = 4
+vim.go.expandtab = true
+vim.go.autoindent = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -282,6 +286,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sp', require('telescope.builtin').git_files, { desc = '[S]earch [G]it Files' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
