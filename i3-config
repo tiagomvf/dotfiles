@@ -33,6 +33,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id stretchly
 # Left handed mouse
 exec --no-startup-id xmodmap -e 'pointer = 3 2 1'
+exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option shift:both_capslock_cancel
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
