@@ -29,8 +29,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Start Stretchly
-exec --no-startup-id stretchly
+# Start Picom do enable transparency
+exec --no-startup-id picom -b
+
 # Left handed mouse
 exec --no-startup-id xmodmap -e 'pointer = 3 2 1'
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option shift:both_capslock_cancel
