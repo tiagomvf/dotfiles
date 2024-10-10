@@ -34,7 +34,7 @@ exec --no-startup-id picom -b
 
 # Left handed mouse
 exec --no-startup-id xmodmap -e 'pointer = 3 2 1'
-exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option shift:both_capslock_cancel
+exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -188,3 +188,7 @@ bar {
 
 default_border pixel 1
 #hide_edge_borders both
+
+exec --no-startup-id i3-msg 'workspace 6; exec i3-sensible-terminal; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; exec google-chrome'
+
