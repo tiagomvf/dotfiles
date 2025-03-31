@@ -189,8 +189,8 @@ bar {
 default_border pixel 1
 #hide_edge_borders both
 
-exec --no-startup-id i3-msg 'workspace 6; exec i3-sensible-terminal; exec google-chrome'
-exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 6; exec i3-sensible-terminal; exec librewolf -P trt6'
+exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; exec librewolf -P pessoal'
 
 for_window [class="^.*"] border pixel 2
 for_window [class="^.*"] gaps inner all set 2
