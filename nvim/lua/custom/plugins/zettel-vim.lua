@@ -13,7 +13,10 @@ return {
         { path = '~/zettel', ext = '.md', syntax = 'markdown' },
       }
       vim.g.zettel_options = {
-        { zettel_format = '%y%m%d%H%M%' },
+        {
+          zettel_format = '%y%m%d%H%M%',
+          disable_front_matter = true,
+        },
       }
     end,
   },
