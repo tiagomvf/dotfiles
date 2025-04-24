@@ -670,8 +670,15 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         cssls = {},
-        somesass_ls = {},
         css_variables = {},
+        eslint = {},
+        jdtls = {},
+        pylsp = {},
+        pylyzer = {},
+        quick_lint_js = {},
+        somesass_ls = {},
+        ts_ls = {},
+
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -684,7 +691,6 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -717,6 +723,9 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'kube-linter',
+        'quick-lint-js',
+        'bibtex-tidy',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
