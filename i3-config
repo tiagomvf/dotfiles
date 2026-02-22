@@ -14,6 +14,9 @@ set $mod Mod4
 #font pango:monospace 8
 font pango:FiraCode Regular 8
 
+# Start Picom do enable transparency
+exec_always --no-startup-id picom -b --backend glx
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -29,11 +32,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Start Picom do enable transparency
-exec --no-startup-id picom -b
 
 # Left handed mouse
 exec --no-startup-id xmodmap -e 'pointer = 3 2 1'
+
+# set wallpaper
+exec --no-startup-id feh --bg-fill -z ~/wallpaper
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
 # Use pactl to adjust volume in PulseAudio.
@@ -189,12 +193,12 @@ bar {
 default_border pixel 1
 #hide_edge_borders both
 
-exec --no-startup-id i3-msg 'workspace 6; exec i3-sensible-terminal; exec librewolf -P trt6'
-exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; exec librewolf -P pessoal'
+exec --no-startup-id i3-msg 'workspace 6; layout tabbed; exec i3-sensible-terminal; exec librewolf -P trt6;'
+exec --no-startup-id i3-msg 'workspace 1; layout tabbed; exec i3-sensible-terminal; exec librewolf -P pessoal;'
 # run stretchly
 exec --no-startup-id stretchly >> ~/.local/state/stretchly/stretchly.log 2>&1
 
-for_window [class="^.*"] border pixel 2
-for_window [class="^.*"] gaps inner all set 2
+for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] gaps inner all set 1
 hide_edge_borders both
 

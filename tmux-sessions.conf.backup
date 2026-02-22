@@ -1,0 +1,84 @@
+# tmux-sessions.conf
+# Session templates for automated tmux session creation
+# Source this file from ~/.tmux.conf
+
+# ============================================
+# Keybindings for Session Creation
+# ============================================
+
+# Prefix + C-d: Create development session
+bind-key C-d run-shell "tmux new-session -s dev -c ~/workspaces -d \; \
+  rename-window 'main' \; \
+  new-window -c ~/workspaces -n 'editor' \; \
+  new-window -c ~/workspaces -n 'git' \; \
+  new-window -c ~/workspaces -n 'logs' \; \
+  select-window -t 1"
+
+# Prefix + C-w: Create work session
+bind-key C-w run-shell "tmux new-session -s work -c ~/workspaces -d \; \
+  rename-window 'project-a' \; \
+  new-window -c ~/workspaces -n 'project-b' \; \
+  new-window -c ~/workspaces -n 'notes' \; \
+  new-window -c ~/workspaces -n 'research' \; \
+  select-window -t 1"
+
+# Prefix + C-p: Create personal session
+bind-key C-p run-shell "tmux new-session -s personal -c ~ -d \; \
+  rename-window 'general' \; \
+  new-window -c ~/Downloads -n 'downloads' \; \
+  new-window -c ~ -n 'media' \; \
+  select-window -t 1"
+
+# Prefix + C-q: Create quick session
+bind-key C-q run-shell "tmux new-session -s quick -c ~ -d \; \
+  rename-window 'quick'"
+
+# ============================================
+# Shell Script for Session Management
+# ============================================
+
+# Note: The following is a comment showing shell script usage
+# Save this as ~/.local/bin/tmux-session or add to your shell config
+
+# Shell script example:
+# #!/bin/bash
+# 
+# case "$1" in
+#   dev)
+#     tmux new-session -s dev -c ~/workspaces -d
+#     tmux rename-window -t dev:1 "main"
+#     tmux new-window -t dev:2 -c ~/workspaces -n "editor"
+#     tmux new-window -t dev:3 -c ~/workspaces -n "git"
+#     tmux new-window -t dev:4 -c ~/workspaces -n "logs"
+#     tmux select-window -t dev:1
+#     ;;
+#   work)
+#     tmux new-session -s work -c ~/workspaces -d
+#     tmux rename-window -t work:1 "project-a"
+#     tmux new-window -t work:2 -c ~/workspaces -n "project-b"
+#     tmux new-window -t work:3 -c ~/workspaces -n "notes"
+#     tmux new-window -t work:4 -c ~/workspaces -n "research"
+#     tmux select-window -t work:1
+#     ;;
+#   personal)
+#     tmux new-session -s personal -c ~ -d
+#     tmux rename-window -t personal:1 "general"
+#     tmux new-window -t personal:2 -c ~/Downloads -n "downloads"
+#     tmux new-window -t personal:3 -c ~ -n "media"
+#     tmux select-window -t personal:1
+#     ;;
+#   quick)
+#     tmux new-session -s quick -c ~ -d
+#     tmux rename-window -t quick:1 "quick"
+#     ;;
+#   list)
+#     echo "Available sessions: dev, work, personal, quick"
+#     ;;
+#   *)
+#     echo "Usage: $0 {dev|work|personal|quick|list}"
+#     ;;
+# esac
+# 
+# if [ "$1" != "list" ] && [ $? -eq 0 ]; then
+#   tmux attach-session -t "$1"
+# fi
